@@ -1,15 +1,12 @@
-## Matrix inversion can be a costly computation. Rather than computing it 
-## repeatedly, there may be some benefit to caching the result of such operation.
+## Matrix inversion can be a lengthy computation. Rather than computing it 
+## over and over, one could simply cache the result of such operation.
 ## Hence, taking advantage of the scoping rules of the R language, this caching
 ## process can be made using two functions that create a special object which
 ## stores a matrix and caches its inverse.
 
 ## This first function, makeCacheMatrix, creates a special "matrix", which is in
-## fact a list of functions to:
-## 1. set the value of the matrix
-## 2. get the value of the matrix
-## 3. set the value of the matrix's inverse
-## 4. get the value of the matrix's inverse
+## fact a list of functions to set and get the value of the matrix and of the
+## matrix's inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
